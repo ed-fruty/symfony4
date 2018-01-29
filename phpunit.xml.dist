@@ -5,6 +5,7 @@
          xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/6.1/phpunit.xsd"
          backupGlobals="false"
          colors="true"
+         printerClass="Codedungeon\PHPUnitPrettyResultPrinter\Printer"
          bootstrap="vendor/autoload.php"
 >
     <php>
