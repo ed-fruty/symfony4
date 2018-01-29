@@ -48,7 +48,7 @@ class TestController extends Controller
 
     	$node = $this->getDoctrine()->getEntityManager()->find(Node::class, $id);
 
-    	dump($node);
+    	dump($node->getId()->toString(), $id->toString());
     	exit;
     }
 }

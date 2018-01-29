@@ -2,9 +2,11 @@
 declare(strict_types=1);
 namespace App\Bus\Handlers;
 
+use App\Bus\Commands\CreateNodeCommand;
+use App\Entity\Node;
 use App\Events\NodeWasCreatedEvent;
 use App\Repository\NodeRepository;
-use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 final class CreateNodeHandler
 {
@@ -24,7 +26,7 @@ final class CreateNodeHandler
 	 * @param NodeRepository  $nodeRepository  
 	 * @param EventDispatcher $eventDispatcher 
 	 */
-	public function __construct(NodeRepository $nodeRepository, EventDispatcher $eventDispatcher)
+	public function __construct(NodeRepository $nodeRepository, EventDispatcherInterface $eventDispatcher)
 	{
 		$this->nodeRepository = $nodeRepository;
 		$this->eventDispatcher = $eventDispatcher;
