@@ -21,7 +21,7 @@ class TestController extends Controller
     	//$node->setId();
     	$node->setName('name');
 
-    	$em = $this->getDoctrine()->getEntityManager();
+    	$em = $this->getDoctrine()->getManager();
 
     	$em->persist($node);
     	$em->flush();
@@ -46,9 +46,9 @@ class TestController extends Controller
     		'new-node'
     	));
 
-    	$node = $this->getDoctrine()->getEntityManager()->find(Node::class, $id);
+    	$node = $this->getDoctrine()->getManager()->find(Node::class, $id);
 
     	dump($node->getId()->toString(), $id->toString());
-    	exit;
+    	return $this->render('@Maker/demoPage.html.twig', [ 'path' => str_replace($this->getParameter('kernel.project_dir').'/', '', __FILE__) ]);
     }
 }

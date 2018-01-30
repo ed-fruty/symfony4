@@ -29,7 +29,7 @@ services:
     # please note that last definitions always *replace* previous ones
 
     League\Tactician\CommandBus:
-        alias: tactician.commandbus.default
+        alias: tactician.commandbus.default    
 
     App\Bus\Handlers\:
         resource: '../src/Bus/Handlers'

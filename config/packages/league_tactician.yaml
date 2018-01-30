@@ -8,6 +8,8 @@ tactician:
 #                - tactician.middleware.security
 # Validator middleware - https://github.com/thephpleague/tactician-bundle/tree/v1.0#validator-middleware-tacticianmiddlewarevalidator
                 - tactician.middleware.validator
+# Logger middleware - https://github.com/thephpleague/tactician-bundle#logger-middleware-tacticianmiddlewarelogger                
+#                - tactician.middleware.logger
 # Locking middleware - http://tactician.thephpleague.com/plugins/locking-middleware/
                 - tactician.middleware.locking
 # Doctrine transactional middleware, requires additional package - https://github.com/thephpleague/tactician-doctrine
