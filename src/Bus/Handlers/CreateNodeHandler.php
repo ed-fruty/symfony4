@@ -40,10 +40,11 @@ final class CreateNodeHandler
 	 */
 	public function handle(CreateNodeCommand $command)
 	{
-		$node = (new Node($command->getId()))
-			->setName($command->getName());
+		$node = $this->nodeRepository
+            ->newInstance($command->getId())
+            ->setName($command->getName());
 
-		$this->nodeRepository->save($node, false);
+		$this->nodeRepository->persist($node);
 		
 		$this->eventDispatcher->dispatch(NodeWasCreatedEvent::class, new NodeWasCreatedEvent($node));
 	}

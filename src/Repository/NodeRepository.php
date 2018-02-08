@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Node;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Ramsey\Uuid\UuidInterface;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 class NodeRepository extends ServiceEntityRepository
@@ -13,15 +14,17 @@ class NodeRepository extends ServiceEntityRepository
         parent::__construct($registry, Node::class);
     }
 
-    public function save(Node $node, bool $flush = true): bool
+
+    public function persist(Node $node, array $options = []): bool
     {
         $this->_em->persist($node);
 
-        if ($flush) {
-            $this->_em->flush($node);
-        }
-
         return true;
+    }
+
+    public function newInstance(UuidInterface $uuid): Node
+    {
+        return new Node($uuid);
     }
 
     /*
